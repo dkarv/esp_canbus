@@ -9,7 +9,7 @@ esphome:
   #         timeout: 15s
   #     - delay: 30s
   #     - script.execute: canbus_on_boot_requests # 1 time request is enough to get values until hoval reboot
-  
+
 esp32:
   board: nodemcu-32s
   framework:
@@ -20,11 +20,11 @@ esp32:
 
 preferences:
   flash_write_interval: 60min
-  
+
 # Enable logging
 logger:
   level: DEBUG #NONE# ERROR #INFO #DEBUG  #VERBOSE
-  baud_rate: 0 #to disable logging via UART
+#  baud_rate: 0 #to disable logging via UART
   logs:
     text_sensor: ERROR
     homeassistant.sensor: ERROR
