@@ -42,19 +42,21 @@ class Datapoint:
     def into_sensor(self) -> dict:
         assert self.type_name != 'LIST'
         
-        deciamls = {
+        decimals = {
             'accuracy_decimals': self.decimal,
             'filters': [{
                 'multiply': pow(10, -self.decimal)
             }]
         } if self.decimal > 0 else {}
 
+        if (self.unit is not None):
+            decimals['unit_of_measurement'] = self.unit
+
         return {
             **self.__toptronic_base(),
             'id': self.get_id(),
             'type': self.type_name,
-            'unit_of_measurement': self.unit,
-            **deciamls,
+            **decimals,
         }
     
     def into_text_sensor(self) -> dict:
