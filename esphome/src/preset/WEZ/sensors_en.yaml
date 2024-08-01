@@ -8,10 +8,10 @@ sensor:
   datapoint: 0
   id: WEZ_0_0_0
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Normal room temp. heating oper. (1)
   device_type: WEZ
@@ -21,10 +21,10 @@ sensor:
   datapoint: 3051
   id: WEZ_1_0_3051
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Conservation room temp. heating oper. (1)
   device_type: WEZ
@@ -34,10 +34,10 @@ sensor:
   datapoint: 3053
   id: WEZ_1_0_3053
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Normal room temp. heating oper. (2)
   device_type: WEZ
@@ -47,10 +47,10 @@ sensor:
   datapoint: 3051
   id: WEZ_1_1_3051
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Conservation room temp. heating oper. (2)
   device_type: WEZ
@@ -60,10 +60,10 @@ sensor:
   datapoint: 3053
   id: WEZ_1_1_3053
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Normal room temp. heating oper. (3)
   device_type: WEZ
@@ -73,10 +73,10 @@ sensor:
   datapoint: 3051
   id: WEZ_1_2_3051
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Conservation room temp. heating oper. (3)
   device_type: WEZ
@@ -86,10 +86,10 @@ sensor:
   datapoint: 3053
   id: WEZ_1_2_3053
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Normal hot water temp.
   device_type: WEZ
@@ -99,10 +99,10 @@ sensor:
   datapoint: 5051
   id: WEZ_2_0_5051
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Conservation hot water temp.
   device_type: WEZ
@@ -122,10 +122,10 @@ sensor:
   datapoint: 1004
   id: WEZ_2_0_1004
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Hot water actual SF
   device_type: WEZ
@@ -135,10 +135,33 @@ sensor:
   datapoint: 4
   id: WEZ_2_0_4
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
+- platform: toptronic
+  name: Heat quantity heating_low
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 29050
+  id: WEZ_10_1_29050
+  type: U32
+  accuracy_decimals: 3
+  filters:
+  - multiply: 0.001
+  unit_of_measurement: MWh
+- platform: toptronic
+  name: Operating hours heat generator_low
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 2081
+  id: WEZ_10_1_2081
+  type: U32
+  unit_of_measurement: h
 - platform: toptronic
   name: Supply actual (1)
   device_type: WEZ
@@ -148,10 +171,10 @@ sensor:
   datapoint: 2
   id: WEZ_1_0_2
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Supply actual (2)
   device_type: WEZ
@@ -161,10 +184,10 @@ sensor:
   datapoint: 2
   id: WEZ_1_1_2
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Supply actual (3)
   device_type: WEZ
@@ -174,10 +197,23 @@ sensor:
   datapoint: 2
   id: WEZ_1_2_2
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
+- platform: toptronic
+  name: Return temperature
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 60
+  function_number: 254
+  datapoint: 29
+  id: WEZ_60_254_29
+  type: S16
+  accuracy_decimals: 1
+  filters:
+  - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: WEZ output
   device_type: WEZ
@@ -188,6 +224,138 @@ sensor:
   id: WEZ_60_254_30
   type: U8
   unit_of_measurement: '%'
+- platform: toptronic
+  name: Water pressure in bar
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 60
+  function_number: 254
+  datapoint: 32
+  id: WEZ_60_254_32
+  type: S16
+  accuracy_decimals: 1
+  filters:
+  - multiply: 0.1
+  unit_of_measurement: bar
+- platform: toptronic
+  name: Operating hours heat generator >50%_low
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 2082
+  id: WEZ_10_1_2082
+  type: U32
+  unit_of_measurement: h
+- platform: toptronic
+  name: Current output heating_low
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 29051
+  id: WEZ_10_1_29051
+  type: U32
+  accuracy_decimals: 1
+  filters:
+  - multiply: 0.1
+  unit_of_measurement: kW
+- platform: toptronic
+  name: Eletrical power WEZ
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 23002
+  id: WEZ_10_1_23002
+  type: S16
+  accuracy_decimals: 2
+  filters:
+  - multiply: 0.01
+  unit_of_measurement: kW
+- platform: toptronic
+  name: Heating power WEZ
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 23003
+  id: WEZ_10_1_23003
+  type: S16
+  unit_of_measurement: kW
+- platform: toptronic
+  name: Eletrical energy WEZ MWh_low
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 1
+  datapoint: 23009
+  id: WEZ_10_1_23009
+  type: U32
+  accuracy_decimals: 3
+  filters:
+  - multiply: 0.001
+  unit_of_measurement: MWh
+- platform: toptronic
+  name: Total energy efficiency H-Gen
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 10
+  function_number: 0
+  datapoint: 23008
+  id: WEZ_10_0_23008
+  type: U8
+  accuracy_decimals: 1
+  filters:
+  - multiply: 0.1
+- platform: toptronic
+  name: Heat quantity heating_low
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 60
+  function_number: 254
+  datapoint: 47
+  id: WEZ_60_254_47
+  type: U32
+  accuracy_decimals: 3
+  filters:
+  - multiply: 0.001
+  unit_of_measurement: MWh
+- platform: toptronic
+  name: Heat quantity DHW_high
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 60
+  function_number: 254
+  datapoint: 55
+  id: WEZ_60_254_55
+  type: U32
+  accuracy_decimals: 3
+  filters:
+  - multiply: 0.001
+  unit_of_measurement: MWh
+- platform: toptronic
+  name: Coefficient of Performance
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 60
+  function_number: 254
+  datapoint: 45
+  id: WEZ_60_254_45
+  type: U8
+  accuracy_decimals: 1
+  filters:
+  - multiply: 0.1
+- platform: toptronic
+  name: Current sunlight expos. (global rad.)
+  device_type: WEZ
+  device_addr: ${TT_WEZ_addr}
+  function_group: 0
+  function_number: 0
+  datapoint: 20064
+  id: WEZ_0_0_20064
+  type: S16
+  unit_of_measurement: W/m2
 text_sensor:
 - platform: toptronic
   name: Heating operation choice (1)

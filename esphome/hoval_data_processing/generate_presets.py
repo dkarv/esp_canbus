@@ -17,7 +17,7 @@ class Preset():
         self.before_dump = before_dump
 
     def generate(self, wb: Workbook, out_dir: pathlib.Path):
-        locales = ['de', 'en', 'fr', 'it']
+        locales = ['de', 'en' ] # , 'fr', 'it']
         
         for locale in locales:
             print(f"Generating {self.id} {locale} ...")
@@ -90,13 +90,27 @@ if __name__ == "__main__":
             1379, 1380, 1381, # Heating operation choice
             1382, 1384, 1386, # normal room temp.
             1383, 1385, 1387, # conservation romm temp.
-            1414, 1415, 1416, # actual flow temperature
             1397, # hot water operation choice
             1398, # Normal hot water temp.
             1399, # Conservation hot water temp.
             1400, # Hot water setpoint
             1401, # hot water temp.
+            1407, # Heat quantity heating
+            1409, # Operating hours heat generator
+            1414, 1415, 1416, # actual flow temperature
+            1436, # Return temperature
             1437, # WEZ output
+            1439, # Water pressure in bar
+            17892, # Operating hours heat generator >50%
+            17896, # Current output heating
+            24775, # Electrical power WEZ
+            24776, # Heating power WEZ
+            24778, # Electrical energy WEZ MWh
+            26631, # Total energy efficiency H-Gen
+            26649, # Heat quantity heating
+            26653, # Heat quantity DHW
+            26654, # Coefficient of Performance
+            26699, # Current sunlight expos. (global rad.)
         ]), before_dump=wez_before_dump),
         Preset('HV', Filter(rows=[
             22705, # Outside air temp.

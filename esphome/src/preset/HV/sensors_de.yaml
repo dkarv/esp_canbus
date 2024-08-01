@@ -78,10 +78,10 @@ sensor:
   datapoint: 0
   id: HV_50_0_0
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Temperatur Abluft
   device_type: HV
@@ -91,10 +91,10 @@ sensor:
   datapoint: 37602
   id: HV_50_0_37602
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
 - platform: toptronic
   name: Ventilator Fortluft soll
   device_type: HV
