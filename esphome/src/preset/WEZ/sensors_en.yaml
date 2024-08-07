@@ -140,7 +140,7 @@ sensor:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
 - platform: toptronic
-  name: Heat quantity heating_low
+  name: Heat quantity heating
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -153,7 +153,7 @@ sensor:
   - multiply: 0.001
   unit_of_measurement: MWh
 - platform: toptronic
-  name: Operating hours heat generator_low
+  name: Operating hours heat generator
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -238,7 +238,7 @@ sensor:
   - multiply: 0.1
   unit_of_measurement: bar
 - platform: toptronic
-  name: Operating hours heat generator >50%_low
+  name: Operating hours heat generator >50%
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -248,7 +248,7 @@ sensor:
   type: U32
   unit_of_measurement: h
 - platform: toptronic
-  name: Current output heating_low
+  name: Current output heating
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -284,7 +284,7 @@ sensor:
   type: S16
   unit_of_measurement: kW
 - platform: toptronic
-  name: Eletrical energy WEZ MWh_low
+  name: Eletrical energy WEZ MWh
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -309,7 +309,7 @@ sensor:
   filters:
   - multiply: 0.1
 - platform: toptronic
-  name: Heat quantity heating_low
+  name: Heat quantity heating
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 60
@@ -322,7 +322,7 @@ sensor:
   - multiply: 0.001
   unit_of_measurement: MWh
 - platform: toptronic
-  name: Heat quantity DHW_high
+  name: Heat quantity DHW
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 60

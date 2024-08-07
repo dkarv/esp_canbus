@@ -140,7 +140,7 @@ sensor:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
 - platform: toptronic
-  name: "W\xE4rmemenge Heizen_low"
+  name: "W\xE4rmemenge Heizen"
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -153,7 +153,7 @@ sensor:
   - multiply: 0.001
   unit_of_measurement: MWh
 - platform: toptronic
-  name: "Betriebsstunden W\xE4rmeerzeuger_low"
+  name: "Betriebsstunden W\xE4rmeerzeuger"
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -238,7 +238,7 @@ sensor:
   - multiply: 0.1
   unit_of_measurement: bar
 - platform: toptronic
-  name: "Betriebsstunden W\xE4rmeerzeuger >50%_low"
+  name: "Betriebsstunden W\xE4rmeerzeuger >50%"
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -248,7 +248,7 @@ sensor:
   type: U32
   unit_of_measurement: h
 - platform: toptronic
-  name: Aktuelle Leistung Heizen_low
+  name: Aktuelle Leistung Heizen
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -284,7 +284,7 @@ sensor:
   type: S16
   unit_of_measurement: kW
 - platform: toptronic
-  name: Elektrische Gesamtenergie WEZ MWh_low
+  name: Elektrische Gesamtenergie WEZ MWh
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 10
@@ -309,7 +309,7 @@ sensor:
   filters:
   - multiply: 0.1
 - platform: toptronic
-  name: "W\xE4rmemenge Heizen_low"
+  name: "W\xE4rmemenge Heizen"
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 60
@@ -322,7 +322,7 @@ sensor:
   - multiply: 0.001
   unit_of_measurement: MWh
 - platform: toptronic
-  name: "W\xE4rmemenge WW_low"
+  name: "W\xE4rmemenge WW"
   device_type: WEZ
   device_addr: ${TT_WEZ_addr}
   function_group: 60
