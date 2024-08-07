@@ -116,11 +116,8 @@ if __name__ == "__main__":
             22705, # Outside air temp.
             22700, # Humidity extract air
             22706, # Extract air temp.
-            22701, # VOC extract air
-            22702, # VOC outdoor air
             22707, # Fan exhaust air set
             22698, # Ventilation modulation
-            # 22703, # Air quality control
             22704, # Status vent regulation
             22695, # Op. choice ventilation
             22696, # Normal ventilation modulation

@@ -50,26 +50,6 @@ sensor:
   type: U8
   unit_of_measurement: '%'
 - platform: toptronic
-  name: VOC extract air
-  device_type: HV
-  device_addr: ${TT_HV_addr}
-  function_group: 50
-  function_number: 0
-  datapoint: 37608
-  id: HV_50_0_37608
-  type: U8
-  unit_of_measurement: '%'
-- platform: toptronic
-  name: VOC outdoor air
-  device_type: HV
-  device_addr: ${TT_HV_addr}
-  function_group: 50
-  function_number: 0
-  datapoint: 37611
-  id: HV_50_0_37611
-  type: U8
-  unit_of_measurement: '%'
-- platform: toptronic
   name: Outside air temp.
   device_type: HV
   device_addr: ${TT_HV_addr}
