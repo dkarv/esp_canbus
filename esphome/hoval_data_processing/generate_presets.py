@@ -30,7 +30,8 @@ class Preset():
             
             for dp in datapoints:
                 if dp.type_name in ["U32", "S32"]:
-                    dp.name = re.sub(r'(_low|_high)$', "", dp.name)
+                    dp.name = re.sub(r'( low| high)$', "", dp.name) # for HV
+                    dp.name = re.sub(r'(_low|_high)$', "", dp.name) # for WEZ
 
             os.makedirs(out_dir.joinpath(self.id), exist_ok=True)
 
@@ -91,7 +92,7 @@ def bd_before_dump(datapoints: list[Datapoint], locale: str):
 if __name__ == "__main__":
     presets = [
         Preset('WEZ', Filter(rows=[
-            1378, # outdoor sensor 1
+            1378, # AF1 - outdoor sensor 1
             1379, 1380, 1381, # Heating operation choice
             1382, 1384, 1386, # normal room temp.
             1383, 1385, 1387, # conservation romm temp.
@@ -152,7 +153,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
         prog='Generate Presets',
-        description='Genertes sensors and inputs for Hoval devices',
+        description='Generates sensors and inputs for Hoval devices',
     )
 
     parser.add_argument('out_dir')

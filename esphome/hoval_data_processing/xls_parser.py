@@ -42,22 +42,39 @@ class Datapoint:
     def into_sensor(self) -> dict:
         assert self.type_name != 'LIST'
         
-        decimals = {
-            'accuracy_decimals': self.decimal,
-            'filters': [{
-                'multiply': pow(10, -self.decimal)
-            }]
-        } if self.decimal > 0 else {}
+        try:
+            decimal_value = int(self.decimal)
+        except (ValueError, TypeError):
+            decimal_value = 0  # Default value or handle it as you see fit
 
-        if (self.unit is not None):
-            decimals['unit_of_measurement'] = self.unit
+        decimals = {
+            'accuracy_decimals': decimal_value,
+            'filters': [{
+                'multiply': pow(10, -decimal_value)
+            }]
+        } if decimal_value > 0  else {} 
+        
+        
+        # convert unit to full device class
+        if self.unit is not None and self.unit != '0':
+            device_units = unit_to_device_class(self.unit, self.name, class_measurement=True)
+        else:
+            device_units = {}
+                
+        # Set sensor internal if writable (inputs)
+        internal = { 
+            'internal': True,
+        } if self.writable else {} 
 
         return {
             **self.__toptronic_base(),
             'id': self.get_id(),
             'type': self.type_name,
             **decimals,
+            **device_units,
+            **internal,
         }
+      
     
     def into_text_sensor(self) -> dict:
         assert self.type_name == 'LIST'
@@ -72,16 +89,22 @@ class Datapoint:
 
     def into_number(self) -> dict:
         assert self.writable and self.type_name != 'LIST'
+        
+        # convert unit to full device class
+        if self.unit is not None and self.unit != '0':
+            device_units = unit_to_device_class(self.unit, self.name, class_measurement=False)
+        else:
+            device_units = {}
 
         return {
             **self.__toptronic_base(),
             'id': self.get_id()+"_set",
             'type': self.type_name,
-            'unit_of_measurement': self.unit,
             'min_value': self.min,
             'max_value': self.max,
             'step': self.steps,
-            'decimal': self.decimal
+            'decimal': self.decimal,
+            **device_units,
         }
 
 
@@ -204,18 +227,94 @@ def dump_inputs(datapoints: List[Datapoint], path: str):
 
     with open(path, 'w', encoding='utf-8') as f:
         yaml.dump(all_inputs, f, encoding="utf-8", sort_keys=False)
+        
+def unit_to_device_class(unit, name, class_measurement=0):
+
+    # using lambda functions to check if string contains any element from list
+    contains_word = lambda s, l: any(map(lambda x: x in s, l))
+
+    state_class = { 
+            'state_class': 'measurement',
+        } if class_measurement else {} 
+
+    #https://www.home-assistant.io/integrations/number/#device-class
+    device_class = {}
+    if unit == '%':
+        device_class = {
+            'unit_of_measurement': '%',
+            'icon': 'mdi:percent',
+            'device_class': 'power_factor',
+            **state_class,
+        } 
+    if unit == '%' and contains_word(name.lower(), ['humidity', 'humidité', 'feuchte', 'umidit\xE0'] ):
+        device_class = {
+            'unit_of_measurement': '%',
+            'icon': 'mdi:water-percent',
+            'device_class': 'humidity',
+            **state_class,
+        } 
+    elif unit == '\xB0C' or unit == '°C':
+        device_class = {
+            'unit_of_measurement': '°C',
+            'icon': 'mdi:temperature-celsius',
+            'device_class': 'temperature',
+            **state_class,
+        } 
+    elif unit == 'K' :
+        device_class = {
+            'unit_of_measurement': '°C',
+            'icon': 'mdi:temperature-kelvin',
+            'device_class': 'temperature',
+            **state_class,
+        }     
+    elif unit in ['Wh', 'kWh', 'MWh', 'MJ', 'GJ']: 
+        device_class = {
+            'unit_of_measurement': unit ,
+            'icon': 'mdi:flash',
+            'device_class': 'energy',
+            **state_class,
+        }
+    elif unit in ['W', 'kW']: 
+        device_class = {
+            'unit_of_measurement': unit ,
+            'icon': 'mdi:lightning-bolt',
+            'device_class': 'power',
+            **state_class,
+        }
+    elif unit in ['m³', 'm3', 'L', 'l']: 
+        device_class = {
+            'unit_of_measurement': unit ,
+            'icon': 'mdi:water-percent',
+            'device_class': 'volume',
+            **state_class,
+        }
+    elif unit in ['m³/h', 'm3/h', 'L/min', 'l/min']: 
+        device_class = {
+            'unit_of_measurement': unit ,
+            'icon': 'mdi:water-outline',
+            'device_class': 'volume_flow_rate',
+            **state_class,
+        }
+    elif unit in ['m³/h', 'm3/h', 'L/min', 'l/min']: 
+        device_class = {
+            'unit_of_measurement': unit ,
+            'icon': 'mdi:water-outline',
+            'device_class': 'pressure',
+            **state_class,
+        }
+    return device_class    
 
 if __name__ == "__main__":
     path = 'TTE-GW-Modbus-datapoints.xlsx'
     # filter = Filter(unit_names=['WEZ'], unit_ids=[1])
-    # filter = Filter(unit_names=['HV'], unit_ids=[513])
-    filter = Filter(rows=[1382, 3506, 1379])
+    # filter = Filter(unit_names=['HV'], unit_ids=[520])
+    # filter = Filter(rows=[1382, 3506, 1379])
 
-    wb = openpyxl.load_workbook(filename=path, read_only=True)
+    # wb = openpyxl.load_workbook(filename=path, read_only=True)
 
-    datapoints = parse_datapoints(wb, filter)
-    translate(wb, datapoints, 'de')
+    # datapoints = parse_datapoints(wb, filter)
+    # translate(wb, datapoints, 'en')
 
-    dump_sensors(datapoints, 'sensors.yaml')
-    dump_inputs(datapoints, 'inputs.yaml')
+    # dump_sensors(datapoints, 'sensors.yaml')
+    # dump_inputs(datapoints, 'inputs.yaml')
     

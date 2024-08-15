@@ -9,6 +9,10 @@ sensor:
   id: HV_50_0_40651
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: "Modulation de la ventilation \xE9conomique"
   device_type: HV
@@ -19,6 +23,10 @@ sensor:
   id: HV_50_0_40686
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Modulation de la ventilation
   device_type: HV
@@ -29,6 +37,9 @@ sensor:
   id: HV_50_0_38606
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 - platform: toptronic
   name: "Valeur de consigne humidit\xE9"
   device_type: HV
@@ -39,6 +50,10 @@ sensor:
   id: HV_50_0_40687
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:water-percent
+  device_class: humidity
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: "Humidit\xE9 de l'air extrait"
   device_type: HV
@@ -49,26 +64,9 @@ sensor:
   id: HV_50_0_37600
   type: U8
   unit_of_measurement: '%'
-- platform: toptronic
-  name: VOC air extrait
-  device_type: HV
-  device_addr: ${TT_HV_addr}
-  function_group: 50
-  function_number: 0
-  datapoint: 37608
-  id: HV_50_0_37608
-  type: U8
-  unit_of_measurement: '%'
-- platform: toptronic
-  name: "VOC air ext\xE9rieur"
-  device_type: HV
-  device_addr: ${TT_HV_addr}
-  function_group: 50
-  function_number: 0
-  datapoint: 37611
-  id: HV_50_0_37611
-  type: U8
-  unit_of_measurement: '%'
+  icon: mdi:water-percent
+  device_class: humidity
+  state_class: measurement
 - platform: toptronic
   name: "Temp\xE9rature de l'air ext\xE9rieur"
   device_type: HV
@@ -78,10 +76,13 @@ sensor:
   datapoint: 0
   id: HV_50_0_0
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: "Temp\xE9rature de l'air extrait"
   device_type: HV
@@ -91,10 +92,13 @@ sensor:
   datapoint: 37602
   id: HV_50_0_37602
   type: S16
-  unit_of_measurement: "\xB0C"
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
+  unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: "Ventilateur air \xE9vacu\xE9 val. de consigne"
   device_type: HV
@@ -105,6 +109,27 @@ sensor:
   id: HV_50_0_38600
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+- platform: toptronic
+  name: Val compt maint message maint (sem expl)
+  device_type: HV
+  device_addr: ${TT_HV_addr}
+  function_group: 0
+  function_number: 0
+  datapoint: 20037
+  id: HV_0_0_20037
+  type: U32
+- platform: toptronic
+  name: Valeur compteur nettoyage message nett. (sem expl.)
+  device_type: HV
+  device_addr: ${TT_HV_addr}
+  function_group: 0
+  function_number: 0
+  datapoint: 41613
+  id: HV_0_0_41613
+  type: U32
 text_sensor:
 - platform: toptronic
   name: "S\xE9lection de fonctionnement ventilation"
