@@ -9,6 +9,10 @@ sensor:
   id: HV_50_0_40651
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: "Spar-L\xFCftungsmodulation "
   device_type: HV
@@ -19,6 +23,10 @@ sensor:
   id: HV_50_0_40686
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: "L\xFCftungsmodulation"
   device_type: HV
@@ -29,6 +37,9 @@ sensor:
   id: HV_50_0_38606
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 - platform: toptronic
   name: Feuchte Sollwert
   device_type: HV
@@ -39,6 +50,10 @@ sensor:
   id: HV_50_0_40687
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:water-percent
+  device_class: humidity
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Feuchtigkeit Abluft
   device_type: HV
@@ -49,6 +64,9 @@ sensor:
   id: HV_50_0_37600
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 - platform: toptronic
   name: Temperatur Aussenluft
   device_type: HV
@@ -62,6 +80,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Temperatur Abluft
   device_type: HV
@@ -75,6 +96,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Ventilator Fortluft soll
   device_type: HV
@@ -85,6 +109,9 @@ sensor:
   id: HV_50_0_38600
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 text_sensor:
 - platform: toptronic
   name: "Betriebswahl L\xFCftung"

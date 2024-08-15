@@ -12,3 +12,6 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement

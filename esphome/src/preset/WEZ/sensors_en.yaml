@@ -12,6 +12,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Normal room temp. heating oper. (1)
   device_type: WEZ
@@ -25,6 +28,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Conservation room temp. heating oper. (1)
   device_type: WEZ
@@ -38,6 +45,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Normal room temp. heating oper. (2)
   device_type: WEZ
@@ -51,6 +62,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Conservation room temp. heating oper. (2)
   device_type: WEZ
@@ -64,6 +79,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Normal room temp. heating oper. (3)
   device_type: WEZ
@@ -77,6 +96,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Conservation room temp. heating oper. (3)
   device_type: WEZ
@@ -90,6 +113,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Normal hot water temp.
   device_type: WEZ
@@ -103,6 +130,10 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Conservation hot water temp.
   device_type: WEZ
@@ -113,6 +144,10 @@ sensor:
   id: WEZ_2_0_5086
   type: U8
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Hot water setpoint
   device_type: WEZ
@@ -126,6 +161,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Hot water actual SF
   device_type: WEZ
@@ -139,6 +177,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Heat quantity heating
   device_type: WEZ
@@ -152,6 +193,9 @@ sensor:
   filters:
   - multiply: 0.001
   unit_of_measurement: MWh
+  icon: mdi:flash
+  device_class: energy
+  state_class: measurement
 - platform: toptronic
   name: Operating hours heat generator
   device_type: WEZ
@@ -161,7 +205,6 @@ sensor:
   datapoint: 2081
   id: WEZ_10_1_2081
   type: U32
-  unit_of_measurement: h
 - platform: toptronic
   name: Supply actual (1)
   device_type: WEZ
@@ -175,6 +218,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Supply actual (2)
   device_type: WEZ
@@ -188,6 +234,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Supply actual (3)
   device_type: WEZ
@@ -201,6 +250,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Return temperature
   device_type: WEZ
@@ -214,6 +266,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: WEZ output
   device_type: WEZ
@@ -224,6 +279,9 @@ sensor:
   id: WEZ_60_254_30
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 - platform: toptronic
   name: Water pressure in bar
   device_type: WEZ
@@ -236,7 +294,6 @@ sensor:
   accuracy_decimals: 1
   filters:
   - multiply: 0.1
-  unit_of_measurement: bar
 - platform: toptronic
   name: Operating hours heat generator >50%
   device_type: WEZ
@@ -246,7 +303,6 @@ sensor:
   datapoint: 2082
   id: WEZ_10_1_2082
   type: U32
-  unit_of_measurement: h
 - platform: toptronic
   name: Current output heating
   device_type: WEZ
@@ -260,6 +316,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: kW
+  icon: mdi:lightning-bolt
+  device_class: power
+  state_class: measurement
 - platform: toptronic
   name: Eletrical power WEZ
   device_type: WEZ
@@ -273,6 +332,9 @@ sensor:
   filters:
   - multiply: 0.01
   unit_of_measurement: kW
+  icon: mdi:lightning-bolt
+  device_class: power
+  state_class: measurement
 - platform: toptronic
   name: Heating power WEZ
   device_type: WEZ
@@ -283,6 +345,9 @@ sensor:
   id: WEZ_10_1_23003
   type: S16
   unit_of_measurement: kW
+  icon: mdi:lightning-bolt
+  device_class: power
+  state_class: measurement
 - platform: toptronic
   name: Eletrical energy WEZ MWh
   device_type: WEZ
@@ -296,6 +361,9 @@ sensor:
   filters:
   - multiply: 0.001
   unit_of_measurement: MWh
+  icon: mdi:flash
+  device_class: energy
+  state_class: measurement
 - platform: toptronic
   name: Total energy efficiency H-Gen
   device_type: WEZ
@@ -321,6 +389,9 @@ sensor:
   filters:
   - multiply: 0.001
   unit_of_measurement: MWh
+  icon: mdi:flash
+  device_class: energy
+  state_class: measurement
 - platform: toptronic
   name: Heat quantity DHW
   device_type: WEZ
@@ -334,6 +405,9 @@ sensor:
   filters:
   - multiply: 0.001
   unit_of_measurement: MWh
+  icon: mdi:flash
+  device_class: energy
+  state_class: measurement
 - platform: toptronic
   name: Coefficient of Performance
   device_type: WEZ
@@ -355,7 +429,6 @@ sensor:
   datapoint: 20064
   id: WEZ_0_0_20064
   type: S16
-  unit_of_measurement: W/m2
 text_sensor:
 - platform: toptronic
   name: Heating operation choice (1)

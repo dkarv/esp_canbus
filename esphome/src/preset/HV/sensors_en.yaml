@@ -9,6 +9,10 @@ sensor:
   id: HV_50_0_40651
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Eco ventilation modulation
   device_type: HV
@@ -19,6 +23,10 @@ sensor:
   id: HV_50_0_40686
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Ventilation modulation
   device_type: HV
@@ -29,6 +37,9 @@ sensor:
   id: HV_50_0_38606
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 - platform: toptronic
   name: Humidity set value
   device_type: HV
@@ -39,6 +50,10 @@ sensor:
   id: HV_50_0_40687
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:water-percent
+  device_class: humidity
+  state_class: measurement
+  internal: true
 - platform: toptronic
   name: Humidity extract air
   device_type: HV
@@ -49,6 +64,9 @@ sensor:
   id: HV_50_0_37600
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:water-percent
+  device_class: humidity
+  state_class: measurement
 - platform: toptronic
   name: Outside air temp.
   device_type: HV
@@ -62,6 +80,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Extract air temp.
   device_type: HV
@@ -75,6 +96,9 @@ sensor:
   filters:
   - multiply: 0.1
   unit_of_measurement: "\xB0C"
+  icon: mdi:temperature-celsius
+  device_class: temperature
+  state_class: measurement
 - platform: toptronic
   name: Fan exhaust air set
   device_type: HV
@@ -85,6 +109,9 @@ sensor:
   id: HV_50_0_38600
   type: U8
   unit_of_measurement: '%'
+  icon: mdi:percent
+  device_class: power_factor
+  state_class: measurement
 text_sensor:
 - platform: toptronic
   name: Op. choice ventilation
